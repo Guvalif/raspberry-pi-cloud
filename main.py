@@ -1,3 +1,5 @@
+import os
+
 from bottle import Bottle, request
 from gevent.pywsgi import WSGIServer
 from geventwebsocket import WebSocketError
@@ -5,7 +7,7 @@ from geventwebsocket.handler import WebSocketHandler
 
 
 router = Bottle()
-app    = WSGIServer(('0.0.0.0', 80), router, handler_class=WebSocketHandler)
+server = WSGIServer(('0.0.0.0', int(os.environ.get('PORT', 5000))), router, handler_class=WebSocketHandler)
 
 
 @router.route('/')
@@ -30,4 +32,4 @@ def handle_websocket():
             break
 
 
-app.serve_forever()
+server.serve_forever()
