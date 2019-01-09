@@ -119,7 +119,3 @@ Lib
 Scripts
 pip-selfcheck.json
 pyvenv.cfg
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
